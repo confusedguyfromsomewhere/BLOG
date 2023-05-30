@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for draft in drafts %}
+        <div class="post">
+            <h1>
+                <a href="{% url 'draft-detail' draft.pk %}">{{ draft.title }}</a>
+            </h1>
+            <div class="date author">@{{ draft.author.username }}</div>
+            <p>{{ draft.content|truncatechars:200 }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
+
+
